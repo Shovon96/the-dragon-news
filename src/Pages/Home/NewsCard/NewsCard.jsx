@@ -1,8 +1,9 @@
 import { BiBookmark, BiShareAlt } from 'react-icons/bi';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const NewsCard = ({ news }) => {
-    const { author, title,image_url, details } = news;
+    const { author, title, image_url, details, _id } = news;
     return (
         <div className=''>
             <div className='flex justify-between items-center bg-slate-100  p-4'>
@@ -23,7 +24,15 @@ const NewsCard = ({ news }) => {
             <div className='p-4'>
                 <h2 className='text-xl font-bold my-4'>{title}</h2>
                 <img src={image_url} alt="" />
-                <p className='text-gray-400 my-5'>{details.split(' ').slice(0, 60).join(' ') + (details.split(' ').length > 60 ? '...' : '')}</p>
+                <div className='text-gray-400 my-5'>
+                    {/* {details.split(' ').slice(0, 60).join(' ') + (details.split(' ').length > 60 ? <Link className='text-sm text-red-600 underline'>read more...</Link> : '')} */}
+                    {
+                        details.length > 300 ?
+                        <p> {details.slice(0, 300)}
+                        <Link to={`news/${_id}`} className='text-sm text-red-400 hover:underline'> read more...</Link></p>
+                        : <p>{details}</p>
+                    }
+                </div>
             </div>
         </div>
     );
