@@ -15,7 +15,7 @@ const LeftSideNav = () => {
     }, [])
 
     return (
-        <div>
+        <div className="sticky top-2">
             <h1 className="text-2xl font-semibold mb-2 p-2">All Category</h1>
             <div>
                 <h2 className="text-2xl bg-slate-200 font-bold px-8 py-3 rounded-lg">National News</h2>
@@ -23,7 +23,7 @@ const LeftSideNav = () => {
                     {
                         categories.map(category =>
                             <div className="py-3 text-gray-500 hover:text-black hover:underline" key={category.id}>
-                                <Link className="">{category.name}</Link>
+                                <Link to={`/categories/${category.id}`}>{category.name}</Link>
                             </div>)
                     }
                 </div>

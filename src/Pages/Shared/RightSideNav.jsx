@@ -2,7 +2,7 @@ import { FaFacebook, FaGithub, FaGoogle, FaInstagram, FaTwitter } from 'react-ic
 
 const RightSideNav = () => {
     return (
-        <div>
+        <div className='sticky top-2'>
             {/* login with */}
             <div className='p-3 space-y-3'>
                 <h1 className="text-2xl font-bold">Login With</h1>
